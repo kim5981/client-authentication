@@ -1,25 +1,46 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom"
+import axios from "axios"
+import { token } from "./FriendsList"
 
-export default function AddFriend (props) {
+export default function AddFriend () {
+
+    const { push } = useHistory();
 
     const labelStyle = {
         fontWeight: "bold"
     }
 
     const initialFormVals = {
-        friendName: "",
-        friendEmail: ""
+        name: "",
+        email: ""
     }
 
     const [ formVals, setFormVals ] = useState(initialFormVals);
 
-    const onChange = () => {
-
+    const onChange = evt => {
+        const { id, value } = evt.target
+        setFormVals({
+            ...formVals,
+            [id]: value
+        })
     }
 
-    const submit = () => {
-
-    }
+    const submit = evt => {
+        evt.preventDefault()
+        axios.post("http://localhost:9000/api/friends", formVals, {
+            headers: {
+                authorization: token
+            }
+        })
+            .then(res => {
+                push("/friends")
+                
+            })
+            .catch(err => {
+                debugger
+            })
+        }
 
     return (
         <>
@@ -32,9 +53,9 @@ export default function AddFriend (props) {
           <input
             type="text"
             maxLength={30}
-            value={ formVals.friendName }
+            value={ formVals.name }
             onChange={ onChange }
-            id="friendName"
+            id="name"
           />
           </label>
           
@@ -42,14 +63,14 @@ export default function AddFriend (props) {
           FRIEND EMAIL
             <input
               type="email"
-              maxLength={15}
-              value={ formVals.friendEmail }
+              maxLength={30}
+              value={ formVals.email }
               onChange={ onChange }
-              id="friendEmail"
+              id="email"
             />
           </label>
           
-          <button className="loginBtn" onSubmit={ submit }>ADD</button>
+          <button className="loginBtn" onClick={ submit }>ADD</button>
         </form>
       </div>
         </>

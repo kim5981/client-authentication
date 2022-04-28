@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios"
 
-export default function FriendsList () {
+export const token = localStorage.getItem("token")
 
-    const token = localStorage.getItem("token")
+export default function FriendsList () {
     
     const [friends, setFriends] = useState([])
 
@@ -15,15 +15,12 @@ export default function FriendsList () {
             }
         })
             .then(res => {
-               console.log(res)
                setFriends(res.data)
             })
             .catch(err => {
                 debugger
             })
     }
-
-    console.log(friends);
 
     useEffect( () => {
         getFriends()
