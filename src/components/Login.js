@@ -6,7 +6,7 @@ import axios from "axios"
 
 export default function Login () {
 
-const { push } = useHistory();
+
 
 const initialFormVals = {
     username: "",
@@ -16,6 +16,7 @@ const initialFormVals = {
 
 const [ formVals, setFormVals ] = useState(initialFormVals);
 
+const { push } = useHistory();
     const onChange = evt => {
         const { id, value } = evt.target
         setFormVals({
@@ -26,9 +27,9 @@ const [ formVals, setFormVals ] = useState(initialFormVals);
 
     
       const submit = evt => {
+        
         evt.preventDefault()
-        // take username + password and post it to api 
-        // and redirect to friends list
+
         axios.post("http://localhost:9000/api/login", formVals)
           .then(res => {
             localStorage.setItem("token", res.data.token)
@@ -36,15 +37,9 @@ const [ formVals, setFormVals ] = useState(initialFormVals);
           })
           .catch(err => {
             setFormVals({
-              ...formVals,
               error: err.response.data.error
             })
           })
-        setFormVals({
-          username: "",
-          password: ""
-        })
-
     }
 
     const labelStyle ={

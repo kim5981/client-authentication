@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios"
 
 export const token = localStorage.getItem("token")
@@ -7,6 +7,7 @@ export const token = localStorage.getItem("token")
 export default function FriendsList () {
     
     const [friends, setFriends] = useState([])
+    const { push } = useHistory()
 
     const getFriends = () => {
         axios.get("http://localhost:9000/api/friends", {
@@ -18,7 +19,7 @@ export default function FriendsList () {
                setFriends(res.data)
             })
             .catch(err => {
-                debugger
+                push("/")
             })
     }
 

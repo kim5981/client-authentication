@@ -3,15 +3,17 @@ import './App.css';
 import { 
   BrowserRouter as Router,
    Route, 
-   Redirect
+   Redirect,
   } from 'react-router-dom'
 
 import Login from "./components/Login.js"
 import AddFriend from './components/AddFriend';
 import FriendsList from './components/FriendsList';
+import Logout from "./components/Logout.js"
+
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
-
 
   return (
     <Router>
@@ -37,12 +39,16 @@ function App() {
           <Redirect to="/"/>
         </Route>
 
-        <Route exact path="/friends">
-          <FriendsList/>
+        <Route exact path="/logout">
+          <Redirect to="/"/>
         </Route>
 
-        <Route exact path="/addfriend">
-          <AddFriend/>
+        <PrivateRoute exact path="/friends" component={ FriendsList }/>
+
+        <PrivateRoute exact path="/addfriend" component={ AddFriend }/>
+
+        <Route exact path="/logout">
+          <Logout/>
         </Route>
 
     </div>

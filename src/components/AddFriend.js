@@ -38,7 +38,7 @@ export default function AddFriend () {
                 
             })
             .catch(err => {
-                debugger
+                push("/login")
             })
         }
 
