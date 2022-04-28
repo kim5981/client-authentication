@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom"
 import styled from "styled-components";
 import axios from "axios"
-import { loginUrl } from "../App";
+
 
 export default function Login () {
+
+const { push } = useHistory();
 
 const initialFormVals = {
     username: "",
     password: "",
+    error: ""
 }
 
 const [ formVals, setFormVals ] = useState(initialFormVals);
@@ -27,12 +31,20 @@ const [ formVals, setFormVals ] = useState(initialFormVals);
         // and redirect to friends list
         axios.post("http://localhost:9000/api/login", formVals)
           .then(res => {
-            console.log(res)
+            localStorage.setItem("token", res.data.token)
+            push("/friends")
           })
           .catch(err => {
-            console.log(err)
+            setFormVals({
+              ...formVals,
+              error: err.response.data.error
+            })
           })
-        
+        setFormVals({
+          username: "",
+          password: ""
+        })
+
     }
 
     const labelStyle ={
@@ -79,6 +91,11 @@ const [ formVals, setFormVals ] = useState(initialFormVals);
           
           <button className="loginBtn" onClick={ submit }>SUBMIT</button>
         </form>
+
+        <span>
+          <h4> { formVals.error } </h4>
+        </span>
+
       </div>
       </>
     )
