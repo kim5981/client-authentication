@@ -3,28 +3,38 @@ import './App.css';
 import { 
   BrowserRouter as Router,
    Route, 
-   Switch
-  } from 'react-router-dom';
-
+   Redirect
+  } from 'react-router-dom'
+import axios from "axios"
 
 import Login from "./components/Login.js"
+import AddFriend from './components/AddFriend';
+import FriendsList from './components/FriendsList';
 
 function App() {
 
   return (
+    <Router>
     <div className="App">
-      
-      <Router>
-        <Switch>
-        <Route>
-            <Login path="/"/>
-          </Route>
-        </Switch>
-      </Router>
-      
+        
+        <Route exact path="/">
+            <Login/>
+        </Route>
 
-      
+        <Route exact path="/login">
+          <Redirect to="/"/>
+        </Route>
+
+        <Route exact path="/friends">
+          <FriendsList/>
+        </Route>
+
+        <Route exact path="/addfriend">
+          <AddFriend/>
+        </Route>
+
     </div>
+    </Router>
   );
 }
 

@@ -1,7 +1,23 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import axios from "axios"
+import { loginUrl } from "../App";
 
 export default function Login () {
+
+    const login = ({ username, password }) => {
+        axios.post("http://localhost:9000/api/login", { username, password })
+          .then(res => {
+            debugger
+            // //store token in browser local storage 
+            // const token = res.data.token
+            // window.localStorage.setItem("token", token)
+            // //redirect to friends list
+          })
+          .catch(err => {
+            debugger // to do: render err message on screen
+          })
+      }
 
     const initialFormVals = {
         username: "",
@@ -10,7 +26,6 @@ export default function Login () {
 
     const [ formVals, setFormVals ] = useState(initialFormVals);
 
-    
 
     const onChange = evt => {
         const { id, value } = evt.target
@@ -23,7 +38,9 @@ export default function Login () {
     
       const submit = evt => {
         evt.preventDefault()
-
+        // take username + password and post it to api 
+        // and redirect to friends list
+        login(formVals)
     }
 
     const labelStyle ={
@@ -36,7 +53,7 @@ export default function Login () {
       <h3> friends database </h3>
       <nav>
         <a href="/">login</a>
-        <a href="/list">friend list</a>
+        <a href="/friends">friend list</a>
         <a href="/addfriend">add friend</a>
         <a href="/logout">logout</a>
       </nav>

@@ -31,7 +31,7 @@ Each friend object has the format:
 }
 ```
 
-***Make sure to complete your tasks one at a time and complete test each task before proceding forward.***
+***Make sure to complete your tasks one at a time and complete test each task before proceeding forward.***
 
 ## Instructions
 
