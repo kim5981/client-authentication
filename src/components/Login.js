@@ -53,16 +53,7 @@ const [ formVals, setFormVals ] = useState(initialFormVals);
 
     return (
         <>
-        <div className='nav'>
-      <h3> friends database </h3>
-      <nav>
-        <a href="/">login</a>
-        <a href="/friends">friend list</a>
-        <a href="/addfriend">add friend</a>
-        <a href="/logout">logout</a>
-      </nav>
-      </div>
-      
+        
       <div className="main" id="login">
         <h1> LOGIN </h1>
         <form>

@@ -5,7 +5,6 @@ import {
    Route, 
    Redirect
   } from 'react-router-dom'
-import axios from "axios"
 
 import Login from "./components/Login.js"
 import AddFriend from './components/AddFriend';
@@ -13,26 +12,25 @@ import FriendsList from './components/FriendsList';
 
 function App() {
 
-  const login = ({ username, password }) => {
-    axios.post("http://localhost:9000/api/login", { username, password })
-      .then(res => {
-        debugger
-        // //store token in browser local storage 
-        // const token = res.data.token
-        // window.localStorage.setItem("token", token)
-        // //redirect to friends list
-      })
-      .catch(err => {
-        debugger // to do: render err message on screen
-      })
-  }
 
   return (
     <Router>
     <div className="App">
+
+      <header>
+      <div className='nav'>
+      <h3> friends database </h3>
+      <nav>
+        <a href="/">login</a>
+        <a href="/friends">friend list</a>
+        <a href="/addfriend">add friend</a>
+        <a href="/logout">logout</a>
+      </nav>
+      </div>
+      </header>
         
         <Route exact path="/">
-            <Login login={ login }/>
+            <Login/>
         </Route>
 
         <Route exact path="/login">

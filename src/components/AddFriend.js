@@ -23,16 +23,6 @@ export default function AddFriend (props) {
 
     return (
         <>
-        <div className='nav'>
-      <h3> friends database </h3>
-      <nav>
-        <a href="/">login</a>
-        <a href="/friends">friend list</a>
-        <a href="/addfriend">add friend</a>
-        <a href="/logout">logout</a>
-      </nav>
-      </div>
-      
       <div className="main" id="add-friend">
         <h1> ADD FRIEND </h1>
         <form>
