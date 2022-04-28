@@ -5,42 +5,34 @@ import { loginUrl } from "../App";
 
 export default function Login () {
 
-    const login = ({ username, password }) => {
-        axios.post("http://localhost:9000/api/login", { username, password })
-          .then(res => {
-            debugger
-            // //store token in browser local storage 
-            // const token = res.data.token
-            // window.localStorage.setItem("token", token)
-            // //redirect to friends list
-          })
-          .catch(err => {
-            debugger // to do: render err message on screen
-          })
-      }
+const initialFormVals = {
+    username: "",
+    password: "",
+}
 
-    const initialFormVals = {
-        username: "",
-        password: "",
-    }
-
-    const [ formVals, setFormVals ] = useState(initialFormVals);
-
+const [ formVals, setFormVals ] = useState(initialFormVals);
 
     const onChange = evt => {
         const { id, value } = evt.target
-        console.log(value)
         setFormVals({
             ...formVals,
             [id]: value
         }) 
     }
+
     
       const submit = evt => {
         evt.preventDefault()
         // take username + password and post it to api 
         // and redirect to friends list
-        login(formVals)
+        axios.post("http://localhost:9000/api/login", formVals)
+          .then(res => {
+            console.log(res)
+          })
+          .catch(err => {
+            console.log(err)
+          })
+        
     }
 
     const labelStyle ={
@@ -59,7 +51,7 @@ export default function Login () {
       </nav>
       </div>
       
-      <div id="login">
+      <div className="main" id="login">
         <h1> LOGIN </h1>
         <form>
 
@@ -85,7 +77,7 @@ export default function Login () {
             />
           </label>
           
-          <button className="loginBtn" onSubmit={ submit }>SUBMIT</button>
+          <button className="loginBtn" onClick={ submit }>SUBMIT</button>
         </form>
       </div>
       </>
