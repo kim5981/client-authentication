@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios"
 
+import NewPost from "./NewPost";
+
 export const token = localStorage.getItem("token")
 
-export default function FriendsList () {
-    
+export default function FriendsList (props) {
+
     const [friends, setFriends] = useState([])
     const { push } = useHistory()
 
@@ -29,12 +31,20 @@ export default function FriendsList () {
 
     return (
         <div className="Friends">
-            <div className="main">
-                <h1>Friends List</h1>
+            <h1>Friends List</h1>
+
+            < NewPost />
+            
+
+            <div id="friend-wrap" className="main">
+                
                 <ul className="list" >
                    {friends.map( friend => {
                        return (
-                       <li key={ friend.id }>{ friend.name } -- { friend.email }</li>
+                       <span className="friend" key={ friend.id }>{ friend.name }
+                        <li>{ friend.email }</li>
+                       </span>
+                    
                        )
                    })}
                 </ul>

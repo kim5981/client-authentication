@@ -4,7 +4,7 @@ import styled from "styled-components";
 import axios from "axios"
 
 
-export default function Login () {
+export default function Login (props) {
 
 
 

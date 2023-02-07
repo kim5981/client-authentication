@@ -58,7 +58,7 @@ a{
 .main{
   margin: auto;
   display: flex;
-  flex-wrap: nowrap;
+  /* flex-wrap: nowrap; */
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -114,13 +114,38 @@ input{
 
 /* FriendsList */
 
+.Friends{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+#friend-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
 .list{
+  /* width: 80%; */
   background-color: #ede2f0;
   border-radius: 25px;
   list-style-type: none; 
-  display: flex;
-  flex-direction: column;
-  padding: 10% 5% 15% 5%;
-  align-items: center;
+  padding: 10% 15% 10% 15%;
 }
 
+.friend{
+  padding: 5%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: 1.4rem;
+}
+
+li{
+  font-size: 1.2rem;
+}

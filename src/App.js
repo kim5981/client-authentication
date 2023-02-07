@@ -32,7 +32,7 @@ function App() {
       </header>
         
         <Route exact path="/">
-            <Login/>
+            <Login />
         </Route>
 
         <Route exact path="/login">
