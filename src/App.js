@@ -21,7 +21,7 @@ function App() {
 
       <header>
       <div className='nav'>
-      <h3> friends database </h3>
+      <h3> friendly </h3>
       <nav>
         <a href="/">login</a>
         <a href="/friends">friend list</a>

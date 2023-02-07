@@ -30,7 +30,7 @@ export default function FriendsList () {
     return (
         <div className="Friends">
             <div className="main">
-                <h1>Friend List</h1>
+                <h1>Friends List</h1>
                 <ul className="list" >
                    {friends.map( friend => {
                        return (

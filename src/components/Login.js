@@ -62,8 +62,9 @@ const { push } = useHistory();
             onChange={ onChange }
             id="username"
           />
+
           </label>
-          
+            
           <label style={ labelStyle }> 
           PASSWORD
             <input
