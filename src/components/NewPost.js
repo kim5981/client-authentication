@@ -64,7 +64,7 @@ export default function NewPost (props){
                         <input type="checkbox" id="dropdown"/>
 
                         <label className="dropdown__face" forHTML="dropdown">
-                            <div className="dropdown__text">Dropdown</div>
+                            <div className="dropdown__text">Mood</div>
 
                             <div className="dropdown__arrow"></div>
                         </label>
