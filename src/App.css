@@ -118,7 +118,6 @@ input{
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   width: 100%;
 }
 
@@ -149,3 +148,38 @@ input{
 li{
   font-size: 1.2rem;
 }
+
+#post-wrap{
+  display: flex;
+}
+
+h2{
+  font-size: 3rem;
+}
+
+#new-post{
+  display: flex;
+  flex-direction: column;
+
+}
+
+select{
+ appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  z-index: 1;
+
+  /* &::-ms-expand {
+    display: none;
+  } */
+
+  outline: none;
+}
+

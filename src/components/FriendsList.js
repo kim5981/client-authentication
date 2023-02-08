@@ -31,10 +31,8 @@ export default function FriendsList (props) {
 
     return (
         <div className="Friends">
-            <h1>Friends List</h1>
-
             < NewPost />
-            
+            <h1>Friends List</h1>
 
             <div id="friend-wrap" className="main">
                 
