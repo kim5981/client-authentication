@@ -48,16 +48,10 @@ export default function NewPost (props){
 
     return (
         <div id="post-wrap">
-                <h2>Welcome</h2>
-                <span>Your Posts</span>
+
+                <h1>Welcome</h1>
                 <form id="new-post" onSubmit={ onSubmit }>
-                    {/* <input
-                        maxLength={ 80 }
-                        onChange={ onChange }
-                        value={ values.title }
-                        placeholder="Title your post here"
-                        id="title"
-                    /> */}
+                    
                     <textarea
                         maxLength={ 200 }
                         onChange={ onChange }
@@ -65,26 +59,28 @@ export default function NewPost (props){
                         placeholder="How are you feeling today?"
                         id="text"
                     />
-                    <label htmlFor="mood">Mood:</label>
-                    <select id="mood" name="mood" size={ 16 }>
-                        <option value="happy">happy</option>
-                        <option value="excited">excited</option>
-                        <option value="surprised">surprised</option>
-                        <option value="relieved">relieved</option>
-                        <option value="nervous">nervous</option>
-                        <option value="tired">tired</option>
-                        <option value="exhausted">exhausted</option>
-                        <option value="bored">bored</option>
-                        <option value="awkward">awkward</option>
-                        <option value="annoyed">annoyed</option>
-                        <option value="confused">confused</option>
-                        <option value="disappointed">disappointed</option>
-                        <option value="sad">sad</option>
-                        <option value="nostalgic">nostalgic</option>
-                        <option value="elated">elated</option>
-                        <option value="disgusted">disgusted</option>
-                    </select>
+                    
+                    <div className="dropdown">
+                        <input type="checkbox" id="dropdown"/>
+
+                        <label className="dropdown__face" forHTML="dropdown">
+                            <div className="dropdown__text">Dropdown</div>
+
+                            <div className="dropdown__arrow"></div>
+                        </label>
+
+                        <ul className="dropdown__items">
+                            <li>🙂</li>
+                            <li>😺</li>
+                            <li>😽</li>
+                            <li>😎</li>
+                            <li>🤗</li>
+                        </ul>
+                    </div>
+                    
                 </form>
+
+                <h4>Your Posts</h4>
             </div>
     )
 }

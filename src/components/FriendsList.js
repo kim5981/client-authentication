@@ -32,10 +32,9 @@ export default function FriendsList (props) {
     return (
         <div className="Friends">
             < NewPost />
-            <h1>Friends List</h1>
-
+            
             <div id="friend-wrap" className="main">
-                
+            <h2>Friends List</h2>
                 <ul className="list" >
                    {friends.map( friend => {
                        return (
