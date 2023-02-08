@@ -73,7 +73,7 @@ form{
 
 h1{
   font-size: 3.5rem;
-  padding-left: 20%;
+  padding-left: 30%;
 }
 
 
@@ -117,35 +117,48 @@ input{
 
 .Friends{
   display: flex;
+  justify-content: center;
   width: 95%;
 }
 
 #friend-wrap{
+  position: relative;
+  top: 100px;
+  right: 50px;
+  left: 50px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  width: 55%;
+  /* justify-content: flex-start; */
+  background-color: #ede2f0;
+  border-radius: 25px;
+  padding-bottom: 8%;
+  height: 20vh;
 }
 
 .list{
-  /* width: 80%; */
-  background-color: #ede2f0;
-  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* height: auto; */
   list-style-type: none; 
-  padding: 10% 15% 10% 15%;
+  padding: 1% 5% 1% 5%;
 }
 
 .friend{
-  padding: 5%;
+  padding: 1%;
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   flex-direction: column;
-  justify-content: flex-start;
-  text-align: left;
+  flex-wrap: wrap;
   font-size: 1.4rem;
+  padding: 1% 5% 1% 5%;
 }
 
 li{
-  font-size: 1.2rem;
+  font-size: 1rem;
+  padding-bottom: 5%;
 }
 
 /* ------- posts ------------- */

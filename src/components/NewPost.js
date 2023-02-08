@@ -80,7 +80,7 @@ export default function NewPost (props){
                     
                 </form>
 
-                <h4>Your Posts</h4>
+                {/* <h4>Your Posts</h4> */}
             </div>
     )
 }
